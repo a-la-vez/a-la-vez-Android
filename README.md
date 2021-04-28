@@ -1,1 +1,6 @@
-a-la-vez-Android
+### 📌 a-la-vez-Android
+
++ MVVM
++ DataBinding
++ RxJava
+
