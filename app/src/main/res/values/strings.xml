@@ -9,5 +9,9 @@
     <string name="signemail">이메일을 입력해주세요</string>
     <string name="signrepassword">비밀번호를 다시 입력해주세요</string>
     <string name="title_register">회원가입</string>
+    <string name="navigation_mypage">마이페이지</string>
+    <string name="navigation_find">스터디 모집</string>
+    <string name="navigation_make">관심있는 스터디</string>
+
 
 </resources>
