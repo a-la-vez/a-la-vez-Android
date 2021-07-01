@@ -9,11 +9,12 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
 class RegisterImpl {
-    private fun provideRegisterApi(): RegisterApi = ApiProvider.RetroFitBuilder.create(RegisterApi::class.java)
+    private fun provideRegisterApi(): RegisterApi =
+        ApiProvider.RetroFitBuilder.create(RegisterApi::class.java)
 
-    fun registerApi(request: RegisterApi): @NonNull Single<Response<Void>> = provideRegisterApi().register(request)
+    fun registerApi(request: RegisterRequest): @NonNull Single<Response<Void>> =
+        provideRegisterApi().register(request)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-
 
 }

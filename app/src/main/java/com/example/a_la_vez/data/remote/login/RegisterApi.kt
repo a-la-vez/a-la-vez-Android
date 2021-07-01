@@ -6,10 +6,9 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-class RegisterApi {
+interface RegisterApi {
     @POST("/auth/join")
-    fun register(@Body request: RegisterRequest):Single<Response<Void>>
+    fun register(@Body request: RegisterRequest): Single<Response<Void>>
 
-    
 
 }
