@@ -1,17 +1,11 @@
 package com.example.a_la_vez.feature.login.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewModel
 import com.example.a_la_vez.R
 import com.example.a_la_vez.base.BaseActivity
-import com.example.a_la_vez.data.di.module.registerModule
 import com.example.a_la_vez.databinding.ActivityRegisterBinding
 import com.example.a_la_vez.feature.login.viewmodel.RegisterViewModel
-import io.reactivex.rxjava3.core.Observer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity_register) {
@@ -25,12 +19,12 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
     }
 
     private fun checkRegister(){
-        vm.checkRegister.value = vm.EmptyName.value!! && vm.EmptyEmail.value!! && vm.EmptyPassword.value!! && vm.EmptyRePassword.value!!
+        vm.checkRegister.value = vm.emptyName.value!! && vm.emptyEmail.value!! && vm.emptyPassword.value!! && vm.emptyRePassword.value!!
     }
 
     private fun DataInput(){
         vm.userName.observe(this,{
-            vm.EmptyName.value = !it.isNullOrBlank()
+            vm.emptyName.value = !it.isNullOrBlank()
         })
     }
     private fun observeToast() {

@@ -10,16 +10,16 @@ import com.example.a_la_vez.feature.login.model.RegisterRequest
 class RegisterViewModel(private val apiImpl: RegisterImpl) : ViewModel() {
 
     val userName = MutableLiveData<String>()
-    val EmptyName = MutableLiveData<Boolean>(false)
+    val emptyName = MutableLiveData<Boolean>(false)
 
     val userEmail = MutableLiveData<String>()
-    val EmptyEmail = MutableLiveData<Boolean>(false)
+    val emptyEmail = MutableLiveData<Boolean>(false)
 
     val userPassword = MutableLiveData<String>()
-    val EmptyPassword = MutableLiveData<Boolean>(false)
+    val emptyPassword = MutableLiveData<Boolean>(false)
 
     val userRePassword = MutableLiveData<String>()
-    val EmptyRePassword = MutableLiveData<Boolean>(false)
+    val emptyRePassword = MutableLiveData<Boolean>(false)
 
     val checkRegister = MutableLiveData<Boolean>(false)
 
