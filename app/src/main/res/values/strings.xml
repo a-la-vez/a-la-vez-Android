@@ -12,6 +12,8 @@
     <string name="navigation_mypage">마이페이지</string>
     <string name="navigation_find">스터디 모집</string>
     <string name="navigation_make">관심있는 스터디</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

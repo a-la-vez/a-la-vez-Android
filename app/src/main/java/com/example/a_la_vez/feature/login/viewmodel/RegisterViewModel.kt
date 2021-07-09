@@ -27,7 +27,7 @@ class RegisterViewModel(private val apiImpl: RegisterImpl) : ViewModel() {
     private val successRegister: LiveData<Boolean> get() = _successRegister
 
     private val __failedRegister = MutableLiveData<Boolean>(false)
-    private val __ailedRegister: LiveData<Boolean> get() = __failedRegister
+    private val failedRegister: LiveData<Boolean> get() = __failedRegister
 
     private val _toastMessage = MutableLiveData<String>()
     val toastMessage: LiveData<String> get() = _toastMessage
@@ -56,12 +56,10 @@ class RegisterViewModel(private val apiImpl: RegisterImpl) : ViewModel() {
                             __failedRegister
                         }
 
-
                     }
                 }
             }
 
         }
     }
-
 }

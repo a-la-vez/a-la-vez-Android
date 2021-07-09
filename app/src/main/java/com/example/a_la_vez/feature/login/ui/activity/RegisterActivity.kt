@@ -27,7 +27,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
             vm.emptyName.value = !it.isNullOrBlank()
         })
     }
-    private fun observeToast() {
+    private fun observeToast(msg:String) {
         vm.toastMessage.observe(this, { message ->
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         })
