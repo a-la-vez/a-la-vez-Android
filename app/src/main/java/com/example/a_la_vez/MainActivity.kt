@@ -2,6 +2,7 @@ package com.example.a_la_vez
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import com.example.a_la_vez.base.BaseActivity
 import com.example.a_la_vez.databinding.ActivityMainBinding
 import com.example.a_la_vez.feature.MainViewModel
@@ -14,7 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-    private val vm: MainViewModel by viewModel()
+    override val vm : MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,14 +23,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.vm = vm
         initFragment()
         itemSelectedListener
-        observeFragment()
+        observeEvent()
         binding.mainBottomNavigation.setOnNavigationItemSelectedListener(itemSelectedListener)
         setFragment()
     }
 
     private fun setFragment() {
         initFragment()
-        observeFragment()
+        observeEvent()
     }
 
     private val itemSelectedListener =
@@ -55,8 +56,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             .hide(mypageFragment).commit()
     }
 
-    private fun observeFragment() {
-        vm.tabSelectedItem.observe(this, { id ->
+    private fun changeFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().hide(activeFragment).show(fragment).commit()
+        activeFragment = fragment
+    }
+
+    override fun observeEvent() {
+        vm.tabSelectedItem.observe(this,{id->
             when (id) {
                 R.id.menu_find_group -> {
                     changeFragment(findClubFragment)
@@ -69,11 +75,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 }
             }
         })
-    }
-
-    private fun changeFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().hide(activeFragment).show(fragment).commit()
-        activeFragment = fragment
     }
 
 }
