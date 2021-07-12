@@ -10,7 +10,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity_register) {
 
-    private val vm : RegisterViewModel by viewModel()
+     override val vm : RegisterViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +31,10 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         vm.toastMessage.observe(this, { message ->
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         })
+    }
+
+    override fun observeEvent() {
+        TODO("Not yet implemented")
     }
 
 

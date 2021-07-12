@@ -19,11 +19,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.lifecycleOwner = this
-        binding.vm = vm
-        initFragment()
-        itemSelectedListener
-        observeEvent()
         binding.mainBottomNavigation.setOnNavigationItemSelectedListener(itemSelectedListener)
         setFragment()
     }
@@ -40,7 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         }
     private val findClubFragment = FindclubFragment()
     private val favoriteClubFragment = FavoriteFragment()
-    private val mypageFragment = MypageFragment()
+    private val myPageFragment = MypageFragment()
     private var activeFragment: Fragment = findClubFragment
 
 
@@ -52,8 +47,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             .add(R.id.main_container, favoriteClubFragment)
             .hide(favoriteClubFragment).commit()
         supportFragmentManager.beginTransaction()
-            .add(R.id.main_container, mypageFragment)
-            .hide(mypageFragment).commit()
+            .add(R.id.main_container, myPageFragment)
+            .hide(myPageFragment).commit()
     }
 
     private fun changeFragment(fragment: Fragment) {
@@ -71,7 +66,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                     changeFragment(favoriteClubFragment)
                 }
                 R.id.menu_mypage -> {
-                    changeFragment(mypageFragment)
+                    changeFragment(myPageFragment)
                 }
             }
         })

@@ -9,11 +9,13 @@ import com.example.a_la_vez.base.BaseActivity
 import com.example.a_la_vez.databinding.ActivityLoginBinding
 import com.example.a_la_vez.databinding.ActivityRegisterBinding
 import com.example.a_la_vez.feature.login.viewmodel.LoginViewModel
+import com.example.a_la_vez.feature.login.viewmodel.RegisterViewModel
 import org.koin.androidx.viewmodel.compat.ScopeCompat.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
-    lateinit var viewmodel : LoginViewModel
+    override val vm : LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,5 +38,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     fun checkUp(){
         val checkRegister = Intent(this,RegisterActivity::class.java)
         startActivity(checkRegister)
+    }
+
+    override fun observeEvent() {
+        TODO("Not yet implemented")
     }
 }
